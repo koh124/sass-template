@@ -9,7 +9,7 @@ CSS Modules開発環境もビルトインしています
 
 (1) git cloneでプロジェクトをダウンロード
 ```
-$ git clone リポジトリ
+$ git clone https://github.com/koh124/sass-template.git
 ```
 ※githubの「Code（緑色のボタン） > Download ZIP」 からダウンロードしてもいいです
 
