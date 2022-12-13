@@ -24,6 +24,8 @@ $ npm install -y
 * webpackでコンパイルする
 
 distにstyle.cssとして出力されます。
+
+webpack.config.jsのentryで指定されているファイルが対象です。
 ```
 $ npm run bundle
 ```
