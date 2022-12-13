@@ -45,8 +45,8 @@ cssのクラス名をjsでオブジェクトとして扱い、DOM Elementに直�
 
 CSS Modulesをオンにする（どちらか一方でOK）
 
-* css(scss)ファイル名を*.module.*にする
-* webpack.config.jsを記述する
+* css(scss)ファイル名を`*.module.*`にする
+* `webpack.config.js`を記述する
 
 ```
 **webpack.config.js**
