@@ -1,17 +1,18 @@
-sassコンパイル環境 with webpack + CSS Modules
+## sassコンパイル環境 with webpack + CSS Modules
 
-scssをコンパイルして使いたい場合に手軽にコンパイル・開発できるリポジトリです
-CSS Modules開発環境もビルトインしています
+scssをコンパイルして使いたい場合に手軽にコンパイル・開発できるリポジトリです。
+
+CSS Modules開発環境もビルトインしています。
 
 ## Getting Started
 
-前提： node.js/npmを事前にインストール
+前提： node.js / npmを事前にインストール
 
 (1) git cloneでプロジェクトをダウンロード
 ```
 $ git clone https://github.com/koh124/sass-template.git
 ```
-※githubの「Code（緑色のボタン） > Download ZIP」 からダウンロードしてもいいです
+※githubの「Code（緑色のボタン） > Download ZIP」 からダウンロードしてもいいです。
 
 (2) 必要なnpmパッケージをインストール
 ```
@@ -20,25 +21,32 @@ $ npm install -y
 
 (3) 好きなscssコードを書いてcssにコンパイル
 
-・webpackでコンパイルする
+* webpackでコンパイルする
+
+distにstyle.cssとして出力されます。
 ```
 $ npm run bundle
 ```
-distにstyle.cssとして出力されます
 
-・開発用サーバーを立ち上げる
+* 開発用サーバーを立ち上げる
+
+localhost:8000で開発用サーバーを立ち上げ、ソースコードの変更を即座に反映します。
+
+VScodeのLiveServerのwebpack版です。
+
 ```
 $ npm start
 ```
-localhost:8000で開発用サーバーを立ち上げ、ソースコードの変更を即座に反映します（webpack版VScodeのLiveServer）
 
 ## CSS Modules
-cssのクラス名をjsでオブジェクトとして扱い、DOM Elementに直接記述できる記法です
-バンドル後のクラス名は重複しない一意のクラス名になり、cssでありがちなグローバルスコープ汚染問題（クラス名の衝突）を手軽に避けることができます
+cssのクラス名をjsでオブジェクトとして扱い、DOM Elementに直接記述できる記法です。
+
+バンドル後のクラス名は重複しない一意のクラス名になり、cssでありがちなグローバルスコープ汚染問題（クラス名の衝突）を手軽に避けることができます。
 
 CSS Modulesをオンにする（どちらか一方でOK）
-・css(scss)ファイル名を*.module.*にする
-・webpack.config.jsを記述する
+
+* css(scss)ファイル名を*.module.*にする
+* webpack.config.jsを記述する
 
 ```
 **webpack.config.js**
@@ -50,7 +58,7 @@ CSS Modulesをオンにする（どちらか一方でOK）
 }
 ```
 
-How it works
+#### How it works
 ```
 **src/index.js**
 import Style from './style.module.scss';
