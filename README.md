@@ -23,9 +23,13 @@ $ npm install -y
 
 * webpackでコンパイルする
 
-distにstyle.cssとして出力されます。
+元のファイル名でdistに出力されます。
 
-webpack.config.jsのentryで指定されているファイルが対象です。
+~~webpack.config.jsのentryで指定されているファイルが対象です。~~
+
+webpack.config.jsで複数エントリーに対応したため、`'./src/' 配下の全てのscss(css)`がコンパイル対象です。
+
+
 ```
 $ npm run bundle
 ```
