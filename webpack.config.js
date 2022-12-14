@@ -3,16 +3,29 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const glob = require('glob');
+
+function asset(entries, extension) {
+  const paths = glob.sync(`./src/*.${extension}`);
+  const names = paths.map((path) => {
+    return path.replace('./src/', '').replace(`.${extension}`, '');
+  });
+  for (let i in names) {
+    entries[names[i]] = paths[i];
+  }
+  return entries;
+}
 
 module.exports = {
   context: __dirname,
   entry: {
-    // エントリーポイントを指定 jsはCSS Modules用
-    css: './src/style.scss',
-    // js: './src/index.js'
+    // 複数エントリーに対応 シングルエントリーする場合は適宜任意のnameでエントリーする
+    // jsはCSS Modules用
+    // ...asset({}, 'js'),
+    ...asset({}, 'scss')
   },
   output: {
-    filename: 'index.js',
+    filename: '[name].js',
     path: path.join(__dirname, 'dist'), // outputはcontextがあっても絶対パスを指定
     // path: path.resolve('./dist'), // path.resolve()は絶対パスを生成してくれる（どちらも可）
   },
@@ -40,7 +53,7 @@ module.exports = {
   plugins: [
     new RemoveEmptyScriptsPlugin(), // cssでentryした場合に空のjsを生成しない
     new MiniCssExtractPlugin({
-      filename: 'style.css' // outputの出力先パスからの相対パス
+      filename: '[name].css' // outputの出力先パスからの相対パス
     })
   ],
   resolve: {
