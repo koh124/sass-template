@@ -23,6 +23,10 @@ $ npm install -y
 
 * webpackでコンパイルする
 
+```
+$ npm run bundle
+```
+
 元のファイル名でdistに出力されます。
 
 ~~webpack.config.jsのentryで指定されているファイルが対象です。~~
@@ -36,19 +40,16 @@ webpack.config.jsで複数エントリーに対応したため、`./src/ 直下�
 前回のバージョンまでは'./src'直下のファイルのみが対象だったので、より使いやすくなりました。
 
 
-```
-$ npm run bundle
-```
-
 * 開発用サーバーを立ち上げる
+
+```
+$ npm start
+```
 
 localhost:8000で開発用サーバーを立ち上げ、ソースコードの変更を即座に反映します。
 
 VScodeのLiveServerのwebpack版です。
 
-```
-$ npm start
-```
 
 ## CSS Modules
 cssのクラス名をjsでオブジェクトとして扱い、DOM Elementに直接記述できる記法です。
