@@ -6,9 +6,11 @@ const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const glob = require('glob');
 
 function asset(entries, extension) {
-  const paths = glob.sync(`./src/*.${extension}`);
+  const paths = glob.sync(`./src/**/*.${extension}`);
   const names = paths.map((path) => {
-    return path.replace('./src/', '').replace(`.${extension}`, '');
+    const headToLastSlash = new RegExp(`^(.+/)`);
+    const firstPeriodToLast = new RegExp(/(\..+)/);
+    return path.replace(headToLastSlash, '').replace(firstPeriodToLast, '')
   });
   for (let i in names) {
     entries[names[i]] = paths[i];
