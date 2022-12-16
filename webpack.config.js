@@ -68,7 +68,12 @@ module.exports = {
       new CssMinimizerPlugin() // minify css
     ],
   },
+  watch: true,
+  watchOptions: {
+    ignored: '**/node_modules'
+  },
   devServer: {
+    port: 8000,
     static: {
       directory: 'dist' // webpack-dev-serverのプロジェクトルートを指定する
     }
